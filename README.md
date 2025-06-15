@@ -1,6 +1,4 @@
-**Next Auth**
-
----
+## Next Auth
 
 - **Install next auth**
 
@@ -26,4 +24,14 @@
 - **Create LogOut Form & Call signOut methods**
 - **Create a profile page for displayed login user**
 
-**---------It's Done-------------**
+**_It's Done_** ✅
+
+## Registration Feature
+
+- **Create a registration form to get users data**
+- **Retrieve this form data and create POST request**
+- **Create a post route** `api/register/route.js`
+- **Set up mongoDB Connection**
+- **Define User Model/Schema**
+- **Update authOptions**
+- **Post & Store user info in database**

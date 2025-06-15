@@ -43,6 +43,23 @@ input {
   background-color: transparent;
 }
 
+.home {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+}
+
+.users {
+  width: 450px;
+  margin: 20px auto;
+  border: 2px solid rgb(69, 64, 64);
+  border-radius: 5px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .form {
   width: 350px;
   margin: 20px auto;

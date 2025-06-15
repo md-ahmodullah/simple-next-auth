@@ -1,19 +1,27 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function RegisterPage() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const router = useRouter();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // setName("");
-    // setEmail("");
-    // setPassword("");
-    const user = { name, email, password };
-    console.log(user);
+
+    const res = await fetch("/api/register", {
+      method: "POST",
+      body: JSON.stringify(form),
+    });
+
+    if (res.ok) {
+      alert("User registered!");
+      setForm({});
+      router.push("/profile");
+    } else {
+      alert("Registration failed");
+    }
   };
 
   return (
@@ -23,24 +31,21 @@ export default function RegisterPage() {
         <input
           type="text"
           placeholder="Your Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => setForm({ ...form, name: e.target.value })}
           required
         />
         <br />
         <input
           type="email"
           placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setForm({ ...form, email: e.target.value })}
           required
         />
         <br />
         <input
           type="password"
           placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => setForm({ ...form, password: e.target.value })}
           required
         />
         <br />

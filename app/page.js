@@ -1,5 +1,6 @@
 "use client";
 import LoginPage from "./components/LoginPage";
+import UserLists from "./components/UserLists";
 
 export default function AuthButtons() {
   const btnStyle = {
@@ -20,6 +21,11 @@ export default function AuthButtons() {
     //     Log In
     //   </button>
     // </div>
-    <LoginPage />
+    <div className="home">
+      <div className="users">
+        <UserLists />
+      </div>
+      <LoginPage />
+    </div>
   );
 }
